@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 첫 웹 페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .counter {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .count {
+            font-size: 3em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .features {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .feature {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 환영합니다!</h1>
+        <p>이것은 HTML, CSS, JavaScript로 만든 간단한 웹 페이지 예시입니다. 아래 버튼을 클릭해보세요!</p>
+        
+        <button class="btn" onclick="incrementCounter()">클릭해보세요! 👆</button>
+        
+        <div class="counter">
+            <p style="margin-bottom: 10px; color: #666;">클릭 횟수</p>
+            <div class="count" id="count">0</div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <strong>반응형</strong>
+                <p style="font-size: 0.9em; margin-top: 5px;">모바일 지원</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <strong>빠른 속도</strong>
+                <p style="font-size: 0.9em; margin-top: 5px;">즉시 로딩</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <strong>사용 편의</strong>
+                <p style="font-size: 0.9em; margin-top: 5px;">직관적 UI</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let count = 0;
+        
+        function incrementCounter() {
+            count++;
+            document.getElementById('count').textContent = count;
+            
+            // 애니메이션 효과
+            const countElement = document.getElementById('count');
+            countElement.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                countElement.style.transform = 'scale(1)';
+            }, 200);
+        }
+        
+        // 카운터에 부드러운 전환 효과 추가
+        document.getElementById('count').style.transition = 'transform 0.2s ease';
+    </script>
+</body>
+</html>
